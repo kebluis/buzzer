@@ -1,6 +1,6 @@
 # buzzer-app-challenge
 
-## READ ME PLEASE? Just some disclaimers. It means a lot. THANKS!
+## Just some few pointers before starting. THANKS!
 
 All states aren't persistent. As much as possible don't refresh the page to retain the data.
 
@@ -12,13 +12,13 @@ Refreshing the page will remove the temporary accounts that you created and all 
 
 1. You can login using an already existing user (username: kevin | password: password).
 
-2. Create a temporary account by signing up. Validations are implied. You cannot create an already existing account and you can't proceed if you mistakenly retyped your password wrongly.
+2. Create a temporary account by signing up. Validations are implied. You cannot create an already existing account and you can't proceed if you mistakenly retyped your password incorrectly.
 
-3. Upon logging in, you can create new post that will be binded to your account.
+3. Upon logging in, you can create a new post that will be binded to your account.
 
-4. You can easily logout the dashboard by pressing the Logout link on the top right side of the screen.
+4. You can easily logout the dashboard by pressing the Logout link on the top-right side of the screen.
 
-5. Technology used: Vue3, Vue Router, Vuex
+5. Technology used: Vue3, Typescript, Vue Router, Vuex
 
 ## Project setup
 ```
