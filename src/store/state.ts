@@ -21,22 +21,23 @@ export const state: State = {
   accounts: [
     {
       accountId: "user1",
-      username: "admin",
-      password: "admin",
+      username: "kevin",
+      password: "password",
     },
   ],
   buzzes: [
     {
       buzzId: "buzz1",
       username: "kevin",
-      date: "Sun, 06 Mar 2022 08:41:25 GMT",
-      content: "this is the first buzz in your timeline",
+      date: "Sun, 06 Mar 2022 18:41:25 GMT",
+      content:
+        "Refreshing your web browser will delete your temporary account along with the buzzes that you created.",
     },
     {
       buzzId: "buzz2",
       username: "kevin",
       date: "Sun, 06 Mar 2022 09:41:25 GMT",
-      content: "this is the second buzz in your timeline",
+      content: "Welcome to buzzer!",
     },
   ],
   userInfo: {

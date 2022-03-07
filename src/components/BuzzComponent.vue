@@ -1,7 +1,7 @@
 <template>
   <div class="buzz-wrapper">
     <div class="buzz-content buzz-profile">
-      <img src="@/assets/man.png" alt="avatar" width="50" height="50" />
+      <img :src="getImage(username)" alt="avatar" width="50" height="50" />
       <h3 class="name-separator">{{ username }}</h3>
       <h3>{{ new Date(date).toLocaleString() }}</h3>
     </div>
@@ -35,9 +35,13 @@ export default defineComponent({
       type: String,
     },
   },
-  // setup(props) {
-  //   return {};
-  // },
+  setup() {
+    const getImage = (username) => {
+      let images = require.context("../assets/", false, /\.png$/);
+      return images(`./${username === "kevin" ? "man" : "user"}.png`);
+    };
+    return { getImage };
+  },
 });
 </script>
 

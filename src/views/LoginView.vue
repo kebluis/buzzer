@@ -23,32 +23,53 @@
           name="pword"
         />
         <br />
-        <input type="submit" />
+        <input type="submit" value="Login" />
+        <hr />
+        <em @click="routeToSignUp">Sign up</em> temporarily.
       </form>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { reactive } from "@vue/reactivity";
+import { useStore } from "vuex";
+import router from "@/router";
+import { MutationType } from "@/store/mutations";
 
 export default defineComponent({
   name: "LoginView",
   setup() {
+    const store = useStore();
     const formInput = reactive({
       username: "",
       password: "",
     });
     const loginUser = () => {
-      console.log("we're here");
-      console.log(formInput.username);
-      console.log(formInput.password);
+      const validUser = computed(() =>
+        store.getters.validAccount(formInput.username, formInput.password)
+      );
+      console.log(validUser);
+      if (validUser?.value) {
+        store.commit(MutationType.RecordUser, {
+          accountId: validUser.value.accountId,
+          username: validUser.value.username,
+          password: validUser.value.password,
+        });
+        router.push({ name: "dashboard" });
+      } else {
+        alert("no such user!");
+      }
+    };
+    const routeToSignUp = () => {
+      router.push("/signup");
     };
 
     return {
       formInput,
       loginUser,
+      routeToSignUp,
     };
   },
 });
@@ -75,6 +96,10 @@ export default defineComponent({
     border: 4px solid;
     border-radius: 15px;
     padding: 3rem;
+  }
+  em {
+    cursor: pointer;
+    color: blue;
   }
 }
 </style>
