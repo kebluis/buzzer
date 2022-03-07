@@ -36,7 +36,7 @@ export default defineComponent({
     },
   },
   setup() {
-    const getImage = (username) => {
+    const getImage = (username: string) => {
       let images = require.context("../assets/", false, /\.png$/);
       return images(`./${username === "kevin" ? "man" : "user"}.png`);
     };

@@ -21,7 +21,7 @@ export default defineComponent({
     const buzzes = computed(() => store.state.buzzes);
     const userInfo = computed(() => store.state.userInfo);
     const buzzQuote = ref("");
-    const changeQuote = (e) => (buzzQuote.value = e.target.value);
+    const changeQuote = (e: Event) => (buzzQuote.value = e.target.value);
     const buzzHandler = () => {
       console.log(buzzQuote);
       store.commit(MutationType.AddBuzz, {
