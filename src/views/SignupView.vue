@@ -55,7 +55,7 @@ export default defineComponent({
     const registerUserHandler = () => {
       const accounts = computed(() => store.state.accounts);
       const existingUsernames = computed(() =>
-        accounts.value.map((acc: object) => acc.username)
+        accounts.value.map((acc: any) => acc.username)
       );
       if (registerUser.password !== registerUser.retypePassword) {
         alert("Password didn't match");
